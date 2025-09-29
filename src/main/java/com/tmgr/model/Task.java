@@ -10,7 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -51,7 +51,7 @@ public class Task {
 
     @OneToMany(mappedBy = "task")
     @JsonManagedReference
-    private List<Comment> comments;
+    private Set<Comment> comments;
 
     @Override
     public String toString() {

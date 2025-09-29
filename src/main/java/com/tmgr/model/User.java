@@ -1,5 +1,7 @@
 package com.tmgr.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.tmgr.enums.UserRole;
 import com.tmgr.enums.UserStatus;
@@ -7,11 +9,12 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,18 +32,19 @@ public class User {
 
     @OneToMany(mappedBy = "creator")
     @JsonManagedReference
-    private List<Task> createdTasks;
+    private Set<Task> createdTasks;
 
     @OneToMany(mappedBy = "assignee")
     @JsonManagedReference
-    private List<Task> tasks;
+    private Set<Task> tasks;
 
     @Enumerated(EnumType.STRING)
     private UserStatus status;
 
     @OneToMany(mappedBy = "user")
+    @JsonBackReference
     @JsonManagedReference
-    private List<Comment> comments;
+    private Set<Comment> comments;
 
     @Override
     public String toString() {
