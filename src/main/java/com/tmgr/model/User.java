@@ -28,18 +28,18 @@ public class User {
     private UserRole role;
 
     @OneToMany(mappedBy = "creator")
-    //@JsonManagedReference
+    @JsonManagedReference
     private List<Task> createdTasks;
 
     @OneToMany(mappedBy = "assignee")
-    //@JsonManagedReference
+    @JsonManagedReference
     private List<Task> tasks;
 
     @Enumerated(EnumType.STRING)
     private UserStatus status;
 
     @OneToMany(mappedBy = "user")
-    //@JsonManagedReference
+    @JsonManagedReference
     private List<Comment> comments;
 
     @Override
