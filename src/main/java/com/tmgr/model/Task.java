@@ -8,7 +8,6 @@ import com.tmgr.enums.TaskType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -36,12 +35,12 @@ public class Task {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "creator_id")
-    //@JsonBackReference
+    @JsonBackReference
     private User creator;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "assignee_id")
-    //@JsonBackReference
+    @JsonBackReference
     private User assignee;
 
     @Column(name = "created_at")
@@ -51,7 +50,7 @@ public class Task {
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "task")
-    //@JsonManagedReference
+    @JsonManagedReference
     private List<Comment> comments;
 
     @Override
