@@ -21,7 +21,7 @@ public class TaskService {
     private final UserRepository userRepository;
 
     public List<Task> getAllTasks() {
-        return taskRepository.findAll();
+        return taskRepository.findAllWithComments();
     }
 
     public List<Task> getTasksCreatedBy(Long userId) {

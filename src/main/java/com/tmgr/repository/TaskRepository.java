@@ -20,4 +20,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 
     //@Query(value = "SELECT * FROM task WHERE status = ?1", nativeQuery = true)
     List<Task> findByStatus(TaskStatus status);
+
+    @Query("SELECT t FROM Task t LEFT JOIN FETCH t.comments")
+    List<Task> findAllWithComments();
 }

@@ -32,3 +32,24 @@ build/
 ### VS Code ###
 .vscode/
 docker-compose.yml
+keys.properties
+env.properties
+
+##unkown files
+
+mysql/#innodb_redo/#ib_redo15
+mysql/#innodb_redo/#ib_redo16
+mysql/#innodb_redo/#ib_redo17
+mysql/#ib_16384_0.dblwr
+mysql/#innodb_redo/#ib_redo14
+mysql/#innodb_redo/#ib_redo15_tmp
+mysql/#innodb_redo/#ib_redo16_tmp
+mysql/#innodb_redo/#ib_redo17_tmp
+mysql/binlog.000004
+mysql/ibdata1
+mysql/mysql.ibd
+mysql/tmgr_db/comment.ibd
+mysql/tmgr_db/task.ibd
+mysql/tmgr_db/user.ibd
+mysql/undo_001
+mysql/undo_002
